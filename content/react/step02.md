@@ -1,23 +1,23 @@
 {{#template name="react-step02"}}
-# Defining views with React components
+# 使用React组件定义视图
 
-To start working with React as our view library, let's add some NPM packages which will allow us to get started with React.
+在开始使用React作为我们的视图之前，让我们添加一些运行React的NPM包。
 
-Open a new terminal in the same directory as your running app, and type:
+在你的运行当中的app的目录下，打开一个新的terminal，输入：
 
 ```sh
 meteor npm install --save react react-dom
 ```
 
-### Replace the starter code
+### 更换启动代码
 
-To get started, let's replace the code of the default starter app. Then we'll talk about what it does.
+开始之前，让我们替换默认的APP代码，然后我们将讨论它。
 
-First, replace the content of the initial HTML file:
+首先， 替换初始的HTML内容：
 
 {{> DiffBox tutorialName="simple-todos-react" step="2.2"}}
 
-Second, **delete `client/main.js`** and create three new files:
+然后， **删除 `client/main.js`**并且创建三个新文件：
 
 {{> DiffBox tutorialName="simple-todos-react" step="2.3"}}
 
@@ -25,47 +25,52 @@ Second, **delete `client/main.js`** and create three new files:
 
 {{> DiffBox tutorialName="simple-todos-react" step="2.5"}}
 
-We just added three things to our app:
+*==（代码报错注意模块导入路径问题）==*
 
-1. An `App` React component
-2. A `Task` React component
-3. Some initialization code (in our `client/main.js` client JavaScript entrypoint), in a `Meteor.startup` block, which knows how to call code when the page is loaded and ready. This code loads the other components and renders them into the `#render-target` html element.
+我们刚刚添加了三个东西到我们的APP当中 ：
 
-You can read more about how imports work and how to structure your code in the [Application Structure article](http://guide.meteor.com/structure.html) of the Meteor Guide.
+1. 一个 `App` React 组件
+2. 一个 `Task` React 组件
+3. 一些初始化代码 (在我们的 `client/main.js` JavaScript客户端入口文件),当页面载入被读取的时候通过`Meteor.startup`的调用，程序知道如何去调用代码。这个代码载入其他的组件并渲染将他们提交到`#render-target`html元素
 
-Later in the tutorial, we will refer to these components when adding or changing code.
+你可以在Meteor引导中[Application Structure article](http://guide.meteor.com/structure.html)阅读更多关于如何导入工作组以及如何组织你的代码的内容。
 
-### Check the result
+在教程的最后，当你需要添加或者改变代码的时候我们将会提供这些组件。
 
-In our browser, the app should now look much like this:
+
+### 检查结果
+
+在我们的浏览器当中, APP看起来应该像下面这样：
 
 > #### Todo List
 > - This is task 1
 > - This is task 2
 > - This is task 3
 
-If your app doesn't look like this, use the GitHub link at the top right corner of each code snippet to see the entire file, and make sure your code matches the example.
+如果你的APP看起来不是这样，查看每一段代码右上角的github链接去查看完整文件，并且确保你的代码和例子是一样的。
 
-### HTML files define static content
+### HTML文件定义静态内容
 
-Meteor parses all of the HTML files in your app folder and identifies three top-level tags: **&lt;head>**, **&lt;body>**, and **&lt;template>**.
+Meteor 会解析所有的在APP文件夹当中的HTML文件并且识别三个顶级标签： **&lt;head>**, **&lt;body>**, and **&lt;template>**.
 
-Everything inside any &lt;head> tags is added to the `head` section of the HTML sent to the client, and everything inside &lt;body> tags is added to the `body` section, just like in a regular HTML file.
+每一个包含在 &lt;head>中的标签会被添加到HTML的`head`区域发送到客户端，每一个在 &lt;body> 中的标签会被添加到`body`区域，就像常规的HTML文件一样。
 
-Everything inside &lt;template> tags is compiled into Meteor _templates_, which can be included inside HTML with `{{dstache}}> templateName}}` or referenced in your JavaScript with `Template.templateName`. In this tutorial, we won't be using this feature of Meteor because we will be defining all of our view components with React.
+每一个包含在 &lt;template> 中的标签会被编译到Meteor _模板_ 当中, 它可以使用HTML的 `{{dstache}}> templateName}}` 嵌入或者你可以参考JavaScript的 `Template.templateName`。 在本教程当中, 我们不会使用Meteor的视图模板功能因为我们将使用React去构建我们的视图组件。
 
-### Define view components with React
+### 使用React定义视图组件
 
-In React, view components are subclasses of `React.Component` (which we import with `import { Component } from 'react';`). Your component can have any methods you like, but there are several methods such as `render` that have special functions. Components can also receive data from their parents through attributes called `props`. We'll go over some of the more common features of React in this tutorial; you can also check out [Facebook's React tutorial](https://facebook.github.io/react/docs/tutorial.html).
+在React当中, 视图组件是`React.Component`的子类 (通过`import { Component } from 'react';`导入的)。 你的组件可以有任何你喜欢的方法, 但是有一些方法比如`render`需要特殊的函数 。 组件也可以从他们的父级组件哪里接受数据，通过`props`属性。在本教程当中我们将浏览更多React的特性。你也可以查看他们在[Facebook's React tutorial](https://facebook.github.io/react/docs/tutorial.html)。
 
-### Return markup from the render method with JSX
+### 使用JSX返回标记和渲染方法
 
-The most important method in every React component is `render()`, which is called by React to get a description of the HTML that this component should display. The HTML content is written using a JavaScript extension called JSX, which kind of looks like writing HTML inside your JavaScript. You can see some obvious differences already: in JSX, you use the `className` attribute instead of `class`. An important thing to know about JSX is that it isn't a templating language like Spacebars or Angular - it actually compiles directly to regular JavaScript. Read more about JSX [in the React docs](https://facebook.github.io/react/docs/jsx-in-depth.html).
+在每一个React component当中最重要的方法是`render()`，React用这个方法来描述如何渲染HTML组件以及他们应该如何显示。HTML内容被javascript的扩展来书写的方法叫做JSX，它类似于一种将html写在javascript当中的感觉。你可以在其中看到一些明显的不同；在JSX你使用`className`属性代替`class`。关于JSX很重要的事情是，它不是像Spacebars或者 Angular一样是模板语言-它实际上是直接编译成了常规的javascript。
+阅读更多关于JSX [in the React docs.](https://facebook.github.io/react/docs/jsx-in-depth.html)。
 
-JSX is supported by the `ecmascript` Atmosphere package, which is included in all new Meteor apps by default.
+JSX被`ecmascript`支持的范围广泛的包，它包含在所有新的Meteor的默认应用当中。
 
 {{> DiffBox tutorialName="simple-todos-react" step="2.6"}}
 
-Now that you've added the CSS, the app should look a lot nicer. Check in your browser to see that the new styles have loaded.
+在我们继续之前，让我们通过添加css使我们的app看起来比较好看。
+虽然这个教程专注于html和javascript，所以仅仅复制下面的css到`main.css`当中。这是本教程需要的所有CSS代码。没有CSS，APP依然可以正常工作，不过如果你添加了它会看起来更好一些。
 
 {{/template}}

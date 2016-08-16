@@ -1,4 +1,4 @@
-# Official Meteor tutorials
+# 官方Meteor教程
 
 This repository contains the content and view code for the official Meteor tutorials at [meteor.com](https://www.meteor.com/tutorials/blaze/creating-an-app).
 
