@@ -1,28 +1,28 @@
 {{#template name="sharedStep01"}}
 
-# Creating your first app
+# 创建你的第一个应用
 
-In this tutorial, we are going to create a simple app to manage a 'to do' list and collaborate with others on those tasks.
+在本教程当中, 我们将要创建一个简单的应用去管理“todo”列表并且可以和他人协作。
 
-To create the app, open your terminal and type:
+创建一个APP,打开你的terminal输入：
 
 ```bash
 meteor create simple-todos
 ```
 
-This will create a new folder called `simple-todos` with all of the files that a Meteor app needs:
+这将创建一个叫做“simple-todos”的文件夹包含所有meteor应用需要的文件：
 
 ```bash
-client/main.js        # a JavaScript entry point loaded on the client
-client/main.html      # an HTML file that defines view templates
-client/main.css       # a CSS file to define your app's styles
-server/main.js        # a JavaScript entry point loaded on the server
-package.json          # a control file for installing NPM packages
-.meteor               # internal Meteor files
-.gitignore            # a control file for git
+client/main.js        # 客户端的JavaScript入口文件
+client/main.html      # 定义视图模板的HTML文件
+client/main.css       # 定义你的应用的css样式的CSS文件
+server/main.js        # 服务端的JavaScript入口文件
+package.json          # NPM安装包管理文件
+.meteor               # Meteor内部文件
+.gitignore            # 控制git的文件
 ```
 
-To run the newly created app:
+运行刚刚创建的APP：
 
 ```bash
 cd simple-todos
@@ -30,19 +30,20 @@ meteor npm install
 meteor
 ```
 
-Open your web browser and go to `http://localhost:3000` to see the app running.
+打开你的浏览器然后访问`http://localhost:3000`查看运行的APP
 
-You can play around with this default app for a bit before we continue. For example, try editing the text in `<h1>` inside `client/main.html` using your favorite text editor. When you save the file, the page in your browser will automatically update with the new content. We call this "hot code push".
+在我们继续之前你可以游览一下这个默认的APP。举个例子，你可以用你最喜欢的编辑器尝试编辑`client/main.html`文件当中`<h1>`的文本。当你保存文件的时候，你的浏览器就会自动更新你更改的新内容。我们管这个叫“hot code push”（实时预览）。
 
-### ES2015 JavaScript features
+### ES2015 JavaScript 特性
 
-If you haven't tried next-generation JavaScript features yet, some of the syntax in the intial app code, and throughout this tutorial, might look weird. This is because Meteor ships by default with support for many features of ES2015, the next version of JavaScript. Some of these features include:
+ES2015的新特性贯穿在最初的app代码和整个教程当中，如果你还没有尝试下一代javascript新特性，你将会对他们感到陌生。这是因为Meteor默认需要很多ES2015的特性支持。这些特性包括：
 
-1. Arrow functions: `(arg) => {return result;}`
-2. Shorthand for methods: `render() { ... }`
-3. `const` and `let` instead of `var`
 
-Read about the features that Meteor supports in the [ecmascript docs](https://docs.meteor.com/#/full/ecmascript). For more information about ECMAScript 2015, see some of the articles below:
+1. 数组函数: `(arg) => {return result;}`
+2. 简写方法: `render() { ... }`
+3. `const` 和 `let` 代替 `var`
+
+在[ecmascript docs](http://example.net/) 中阅读关于Meteor支持的特性。获取更多关于ECMAScript2015的信息，可以看一下下面的文章：
 
 * [Luke Hoban's "ES6 features"](http://git.io/es6features)
 
@@ -50,5 +51,5 @@ Read about the features that Meteor supports in the [ecmascript docs](https://do
 
 * [Nikolas C. Zakas "Understanding ECMAScript 6"](https://github.com/nzakas/understandinges6)
 
-Now that you have some experience editing the files in your Meteor app, let's start working on a simple todo list application. If you find a bug or error in the tutorial, please file an issue or submit a pull request [on GitHub](https://github.com/meteor/tutorials).
+现在你已经体验了如何编辑你的Meteor app的文件，让我开始制作一个简单的todo list 应用。如果你在教程当中发现BUG或者错误，请提交到 [GitHub](https://github.com/meteor/tutorials).
 {{/template}}

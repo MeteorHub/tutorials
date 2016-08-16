@@ -1,10 +1,10 @@
 {{#template name="react-step04"}}
 
-# Adding tasks with a form
+# 使用表单添加数据
 
-In this step, we'll add an input field for users to add tasks to the list.
+在本章节，我们将添加一个输入框让用户将任务添加到列表当中。
 
-First, let's add a form to our `App` component:
+首先，让我们我们为我们的`App`组件添加一个表单：
 
 {{> DiffBox step="4.1" tutorialName="simple-todos-react"}}
 
