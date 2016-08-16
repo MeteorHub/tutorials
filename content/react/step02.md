@@ -70,7 +70,6 @@ JSX被`ecmascript`支持的范围广泛的包，它包含在所有新的Meteor�
 
 {{> DiffBox tutorialName="simple-todos-react" step="2.6"}}
 
-在我们继续之前，让我们通过添加css使我们的app看起来比较好看。
-虽然这个教程专注于html和javascript，所以仅仅复制下面的css到`main.css`当中。这是本教程需要的所有CSS代码。没有CSS，APP依然可以正常工作，不过如果你添加了它会看起来更好一些。
+现在你已经添加了css，APP看起来应该比较好了，去浏览器里查看已经载入的新样式吧。
 
 {{/template}}

@@ -1,27 +1,27 @@
 {{#template name="react-step03"}}
 
-# Storing tasks in a collection
+# 将任务存储到集合当中
 
 {{> step03CollectionsIntro tutorialName="simple-todos-react"}}
 
-### Using data from a collection inside a React component
+### 在React组件当中使用集合的数据
 
-To use data from a Meteor collection inside a React component, we can use an Atmosphere package `react-meteor-data` which allows us to create a "data container" to feed Meteor's reactive data into React's component hierarchy.
+在React组件当中使用Meteor集合的数据, 我们可以使用一个 Atmosphere 包 `react-meteor-data` 它允许我们创建一个“数据容器”让Meteor的相应数据填充到React组件层当中。
 
-We need to install that package alongside a NPM package it utilizes, `react-addons-pure-render-mixin`:
+我们需要利用NPM安装它，`react-addons-pure-render-mixin`：
 
 ```bash
 meteor npm install --save react-addons-pure-render-mixin
 meteor add react-meteor-data
 ```
 
-To use `react-meteor-data`, we need to wrap our component in a *container* using the `createContainer` Higher Order Component:
+为了使用`react-meteor-data`,我们需要将我们的组件包含在更高级别的`createContainer`容器当中：
 
 {{> DiffBox step="3.4" tutorialName="simple-todos-react"}}
 
-The wrapped `App` component fetches tasks from the `Tasks` collection and supplies them to the underlying `App` component it wraps as the `tasks` prop. It does this in a reactive way, so that when the contents of the database change, the `App` re-renders, as we'll soon see!
+包含`App`组件的容器从`Tasks`集合里面读取任务数据并且将数据提供给下层`App`组件作为任务'传递'。这就是为什么当数据库发生变化，`App`马上就可以渲染变化。
 
-When you make these changes to the code, you'll notice that the tasks that used to be in the todo list have disappeared. That's because our database is currently empty &mdash; we need to insert some tasks!
+当你改变这些代码的时候，你将注意到任务列表没有显示任何内容，因为我们的数据库是空的；我们需要插入一些任务！
 
 {{> step03InsertingTasksFromConsole}}
 

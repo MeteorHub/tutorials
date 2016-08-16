@@ -2,9 +2,8 @@
 
 ### Adding CSS
 
-Before we go any further, let's make our app look nice by adding some CSS.
-
-Since this tutorial is focused on working with HTML and JavaScript, just copy all the CSS code below into `{{cssFileName}}`. This is all the CSS code you will need until the end of the tutorial. The app will still work without the CSS, but it will look much nicer if you add it.
+在我们继续之前，让我们通过添加css使我们的app看起来比较好看。
+虽然这个教程专注于html和javascript，所以仅仅复制下面的css到`main.css`当中。这是本教程需要的所有CSS代码。没有CSS，APP依然可以正常工作，不过如果你添加了它会看起来更好一些。
 
 {{#codeBox cssHeading cssFileName}}
 ```css
