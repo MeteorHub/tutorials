@@ -1,30 +1,30 @@
 {{#template name="react-step07"}}
 
-# Storing temporary UI data in component state
+# 在组件状态中存储临时的UI数据
 
-In this step, we'll add a client-side data filtering feature to our app, so that users can check a box to only see incomplete tasks. We're going to learn how to use React's component state to store temporary information that is only used on the client.
+在这一步，我们给我们的APP添加一个客户端数据过滤功能，以便用户可以检查的时候只看到未完成的任务。我们将会学习如何使用React的组件状态去存储仅在客户端上使用的临时信息。
 
-First, we need to add a checkbox to our `App` component:
+首先，我们需要给我们的`App`组件添加一个checkbox：
 
 {{> DiffBox step="7.1" tutorialName="simple-todos-react"}}
 
-You can see that it reads from `this.state.hideCompleted`. React components have a special field called `state` where you can store encapsulated component data. We'll need to initialize the value of `this.state.hideCompleted` in the component's constructor:
+你可以看到它读取 `this.state.hideCompleted`。React组件有一个特殊的字段叫做`state`，你可以通过他存储封装的组件数据。在组件的构造函数中，我们需要去初始化`this.state.hideCompleted`的值。
 
 {{> DiffBox step="7.2" tutorialName="simple-todos-react"}}
 
-We can update `this.state` from an event handler by calling `this.setState`, which will update the state property asynchronously and then cause the component to re-render:
+我们可以通过调用`this.setState`来更新`this.state`， 它将异步更新数据然后让组件重新渲染：
 
 {{> DiffBox step="7.3" tutorialName="simple-todos-react"}}
 
-Now, we need to update our `renderTasks` function to filter out completed tasks when `this.state.hideCompleted` is true:
+现在，当`this.state.hideCompleted`是true的时候我们需要更新我们的`renderTasks`函数去过滤我们完成的任务：
 
 {{> DiffBox step="7.4" tutorialName="simple-todos-react"}}
 
-Now if you check the box, the task list will only show tasks that haven't been completed.
+现在如果你点击方框，任务列表将显示给你尚未完成的任务。
 
-### One more feature: Showing a count of incomplete tasks
+### 加一个功能：显示未完成任务数量
 
-Now that we have written a query that filters out completed tasks, we can use the same query to display a count of the tasks that haven't been checked off. To do this we need to fetch a count in our data container and add a line to our `render` method. Since we already have the data in the client-side Minimongo collection, adding this extra count doesn't involve asking the server for anything.
+现在我们已经写了一个过滤出已完成的任务的查询，我们可以使用相同的查询方式显示未完成的任务数量。为了实现这个我们需要在我们的数据容器里抓取这个数值并且在`rander`方法中添加一行。因为我们在客户端的Minimongo当中拥有了数据，所以扩展这个计数不需要与服务端通信。
 
 {{> DiffBox step="7.5" tutorialName="simple-todos-react"}}
 

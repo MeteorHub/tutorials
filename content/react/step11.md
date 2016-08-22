@@ -1,14 +1,10 @@
 {{#template name="react-step11"}}
 
-# What's next?
+# 下一步做什么？
 
-Congratulations on your newly built Meteor app!
+恭喜你已经成功的制作了一个Meteor APP！
 
-Your app currently supports collaborating on a single todo list. To see how you
-could add more functionality, check out the Todos example &mdash; a more
-complete app that can handle sharing multiple lists. Also, try Local Market, a
-cross-platform customer engagement app that shows off native hardware
-functionality and social features.
+你的APP现在已经支持在一个单独的todo列表上进行写作了。去看看你还能添加什么样的功能，查看我们的Todos例子；一个更完整的应用可以处理共享多个列表。同时也可以尝试一下本地商场，一个跨平台的用户交易应用，有可以显示本地硬件信息的功能以及社交功能。
 
 ```bash
 meteor create --example todos

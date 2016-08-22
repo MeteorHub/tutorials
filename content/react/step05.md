@@ -1,23 +1,23 @@
 {{#template name="react-step05"}}
 
-# Checking off and deleting tasks
+# 完成任务和删除任务
 
-Until now, we have only interacted with a collection by inserting documents. Now, we will learn how to update and remove them.
+直到现在, 我们仅仅有一个对集合进行插入的交互。 现在，我们将学习如何更新和删除它们。
 
-Let's add two new elements to our `task` component, a checkbox and a delete button, with event handlers for both:
+让我在`task`组件当中插入一个新的元素，一个checkbox和一个删除按钮, 两个事件处理程序：
 
 {{> DiffBox step="5.1" tutorialName="simple-todos-react"}}
 
-### Update
+### 更新
 
-In the code above, we call `Tasks.update` to check off a task.
+在上面的代码中，我们调用`Tasks.update`去标记完成一个任务。
 
-The `update` function on a collection takes two arguments. The first is a selector that identifies a subset of the collection, and the second is an update parameter that specifies what should be done to the matched objects.
+`update`函数在一个集合当中带两个参数。第一个是一个选择器它用来识别选择集合当中的哪一个子集，第二个是一个特殊的更新参数，它决定应该对选择上的对象做些什么。 
 
-In this case, the selector is just the `_id` of the relevant task. The update parameter uses `$set` to toggle the `checked` field, which will represent whether the task has been completed.
+在本例当中,选择器是任务的`_id`。 更新参数使用`$set`去开关`checked`选框，这将代表任务是否已经完成。
 
-### Remove
+### 删除
 
-The code from above uses `Tasks.remove` to delete a task. The `remove` function takes one argument, a selector that determines which item to remove from the collection.
+上面的代码通过`Tasks.remove`删除任务。`remove`函数有一个参数，一个确定哪些项目从集合中移除的选择器。
 
 {{/template}}

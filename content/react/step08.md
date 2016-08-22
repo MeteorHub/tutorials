@@ -1,74 +1,74 @@
 {{#template name="react-step08"}}
 
-# Adding user accounts
+# 添加用户账户
 
-Meteor comes with an accounts system and a drop-in login user interface that lets you add multi-user functionality to your app in minutes.
+Meteor自带一个用户系统和一个常规的用户登录界面让你可以在短时间内给APP添加多用户功能。
 
-> Currently, this UI component uses Blaze, Meteor's default UI engine. In the future, there might also be a React-specific component for this.
+> 现在,这个UI组件使用Blaze，是Meteor的默认的UI引擎。未来，这里也许也会是React组件。
 
-To enable the accounts system and UI, we need to add the relevant packages. In your app directory, run the following command:
+为了应用这个用户系统和UI，我们需要添加一个关联的包。在你的APP根目录下，运行下面的命令：
 
 ```bash
 meteor add accounts-ui accounts-password
 ```
 
-### Wrapping a Blaze component in React
+### 在React中封装一个Blaze组件
 
-To use the Blaze UI component from the `accounts-ui` package, we need to wrap it in a React component. To do so, let's create a new component called `AccountsUIWrapper` in a new file:
+引用`accounts-ui`包中的Blaze UI组件，我们需要把它分装到React组件当中。让我创建一个名字为`AccountsUIWrapper`的新组件：
 
 {{> DiffBox step="8.2" tutorialName="simple-todos-react"}}
 
-Let's include the component we just defined inside App:
+我们只需要在APP中定义它就可以引用组件：
 
 {{> DiffBox step="8.3" tutorialName="simple-todos-react"}}
 
-Then, add the following code to configure the accounts UI to use usernames instead of email addresses:
+然后，添加下列代码去配置用户UI，让用户名代替email地址：
 
 {{> DiffBox step="8.4" tutorialName="simple-todos-react"}}
 
-We also need to import that configuration code in our client side entrypoint: 
+我们也需要将配置代码引入到我们的客户端：
 
 {{> DiffBox step="8.5" tutorialName="simple-todos-react"}}
 
-### Adding user-related functionality
+### 添加和用户相关的功能
 
-Now users can create accounts and log into your app! This is very nice, but logging in and out isn't very useful yet. Let's add two features:
+现在用户可以创建账号以及登录你的APP！这是非常棒的，但是登入和登出还不是很好用，让我们添加两个功能：
 
-1. Only display the new task input field to logged in users
-2. Show which user created each task
+1. 只给登录用户显示创建任务的输入框
+2. 显示任务是由谁创建的
 
-To do this, we will add two new fields to the `tasks` collection:
+为了实现这些功能，我们需要给`tasks`集合添加两个字段：
 
 1. `owner` - the `_id` of the user that created the task.
 2. `username` - the `username` of the user that created the task. We will save the username directly in the task object so that we don't have to look up the user every time we display the task.
 
-First, let's add some code to save these fields into the `handleSubmit` event handler:
+首选，让我添加一些代码用来将这些字段内容保存到`handleSubmit`事件：
 
 {{> DiffBox step="8.6" tutorialName="simple-todos-react"}}
 
-Modify the data container to get information about the currently logged in user:
+修改数据容器获得当前登录用户的信息：
 
 {{> DiffBox step="8.7" tutorialName="simple-todos-react"}}
 
-Then, in our render method, add a conditional statement to only show the form when there is a logged in user:
+然后，在我们的渲染方法当中，添加一个条件约束，当用户登录的时候只显示表格：
 
 {{> DiffBox step="8.8" tutorialName="simple-todos-react"}}
 
-Finally, add a statement to display the `username` field on each task right before the text:
+最后，添加一个功能，在每一个任务文本之前显示`username`：
 
 {{> DiffBox step="8.9" tutorialName="simple-todos-react"}}
 
-In your browser, add some tasks and notice that your username shows up. Old tasks that we added before this step won't have usernames attached; you can just delete them.
+在你的浏览器当中，添加一些任务，注意你的用户名会显示出来，我们之前添加的任务不会显示用户名；你可以把他们都删除了。
 
-Now, users can log in and we can track which user each task belongs to. Let's look at some of the concepts we just discovered in more detail.
+现在，用户可以登录并且我们可以追踪每一个任务属于那个用户。现在让我看一下这些概念中的细节。
 
-### Automatic accounts UI
+### 自动用户界面
 
-If our app has the `accounts-ui` package, all we have to do to add a login dropdown is render the included UI component. This dropdown detects which login methods have been added to the app and displays the appropriate controls. In our case, the only enabled login method is `accounts-password`, so the dropdown displays a password field. If you are adventurous, you can add the `accounts-facebook` package to enable Facebook login in your app - the Facebook button will automatically appear in the dropdown.
+如果我们的APP有 `accounts-ui` 包， 我们必须添加一个登陆下拉框，渲染内部UI组件。这个下拉登陆检测登陆方法已经被添加到APP当中并会显示一些控制。在我们的案例当中，我们用到的登录方法是 `accounts-password` ，因此下拉框显示一个密码输入框。如果你想探索一下，你可以添加一个`accounts-facebook` 包，这可以让你的APP支持facebook登录。facebook的登录按钮会自动显示在下拉框里。
 
-### Getting information about the logged-in user
+### 获得关于登录用户的信息
 
-In your data container, you can use `Meteor.user()` to check if a user is logged in and get information about them. For example, `Meteor.user().username` contains the logged in user's username. You can also use `Meteor.userId()` to just get the current user's `_id`.
+在你的数据容器当中，你可以使用`Meteor.user()` 去检查用户是否登录，并且获得他们的信息。举个例子，`Meteor.user().username` 包含了用户的用户名。你也可以使用`Meteor.userId()`获得当前用户的ID。
 
-In the next step, we will learn how to make our app more secure by doing data validation on the server.
+在下一节当中，我们将学习如何让我们的APP通过在服务器上进行数据验证，让数据更安全。
 {{/template}}
