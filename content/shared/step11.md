@@ -1,39 +1,39 @@
 {{#template name="sharedStep11"}}
 
-# Testing
+# 测试
 
-Now that we've created a few features for our application, let's add a test to ensure that we don't regress and that it works the way we expect. 
+现在我们已经为我们的应用添加了一些功能，让我们添加一个测试确保我们不用推到重来并且应用可以像我们所期望的那样运行。
 
-We'll write a test that exercises one of our Methods (which form the "write" part of our app's API), and verifies it works correctly.
+我们将写一个测试执行我们的一个方法（这个方法是我们的APP的API当中的）并且验证它可以正常运行。
 
-To do so, we'll add a [test driver](http://guide.meteor.com/testing.html#test-driver) for the [Mocha](https://mochajs.org) JavaScript test framework:
+为了实现这个，我们将添加一个 [test driver](http://guide.meteor.com/testing.html#test-driver) 作为 [Mocha](https://mochajs.org) JavaScript的测试框架：
 
 ```bash
 meteor add practicalmeteor:mocha
 ```
 
-We can now run our app in "test mode" by calling out a special command and specifying to use the driver (you'll need to stop the regular app from running, or specify an alternate port with `--port XYZ`):
+我们现在可以在“测试模型”当中通过调用特殊的命令运行我们的app并且指定使用驱动(你将需要停止正常运行的应用，否则使用 `--port XYZ` 命令指定一个新的端口。
 
 ```bash
 meteor test --driver-package practicalmeteor:mocha
 ```
 
-If you do so, you should see an empty test results page in your browser window.
+如果你这么做，在你的浏览器窗口当中你应该可以看到一个空白的测试结果。
 
-Let's add a simple test (that doesn't do anything yet):
+让我们添加一些简单的测试（这里还什么也没做）：
 
 {{> DiffBox tutorialName="simple-todos" step="11.2"}}
 
-In any test we need to ensure the database is in the state we expect before beginning. We can use Mocha's `beforeEach` construct to do that easily:
+在任何测试当中我们都应该确保数据如我们期望的那样在一个稳定的状态当中。我们会使用Mocha's `beforeEach` 架构去测试：
 
 {{> DiffBox tutorialName="simple-todos" step="11.3"}}
 
-Here we create a single task that's associated with a random `userId` that'll be different for each test run. 
+这里我们创建了一个单独的任务，它关联到的是一个随机的，和之前测试都不同的 `userId`。
 
-Now we can write the test to call the `task.remove` method "as" that user and verify the task is deleted:
+现在我们写一个测试区调用`task.remove`方法验证用户删除操作：
 
 {{> DiffBox tutorialName="simple-todos" step="11.4"}}
 
-There's a lot more you can do in a Meteor test! You can read more about it in the Meteor Guide [article on testing](http://guide.meteor.com/testing.html).
+如果你想在Meteor测试当中做更多事！你可以阅读这篇文章了解更多。 [article on testing](http://guide.meteor.com/testing.html).
 
 {{/template}}
